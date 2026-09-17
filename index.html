@@ -44,9 +44,15 @@
             font-family: 'Tajawal', sans-serif;
             background-color: #080f1e;
             background-image:
-                radial-gradient(ellipse 900px 600px at 15% -5%, rgba(16,185,129,.16), transparent 60%),
-                radial-gradient(ellipse 800px 600px at 100% 10%, rgba(56,189,248,.12), transparent 60%);
+                radial-gradient(ellipse 900px 620px at 50% -10%, rgba(16,185,129,.13), transparent 65%);
             color: #f1f5f9;
+            overflow-x: hidden;
+        }
+        h1,h2,h3{ text-wrap: balance; }
+        .text-balance{ text-wrap: balance; }
+        @media (prefers-reduced-motion: reduce){
+            *{ animation: none !important; transition: none !important; }
+            .reveal{ opacity:1 !important; transform:none !important; }
         }
         .font-mono-num{ font-family: 'JetBrains Mono', monospace; direction: ltr; unicode-bidi: bidi-override; }
         .glow-effect { box-shadow: 0 0 50px -12px rgba(16, 185, 129, 0.25); }
@@ -74,7 +80,7 @@
             border-radius: .75rem;
             padding: .9rem 1rem;
             color: #fff;
-            font-size: .9rem;
+            font-size: 1rem;
             transition: border-color .2s ease;
         }
         .field::placeholder{ color: #64748b; }
@@ -97,34 +103,23 @@
         ::selection{ background: #10b981; color: #06110c; }
     </style>
 </head>
-<body class="antialiased selection:bg-teal-500 selection:text-white">
+<body id="top" class="antialiased selection:bg-teal-500 selection:text-white">
 
     <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <svg width="42" height="42" viewBox="0 0 64 64" class="shrink-0 drop-shadow-[0_0_10px_rgba(16,185,129,.35)]">
-                    <defs>
-                        <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0" stop-color="#2dd4bf"/>
-                            <stop offset="1" stop-color="#10b981"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="64" height="64" rx="16" fill="#0d2340"/>
-                    <rect width="64" height="64" rx="16" fill="none" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.5"/>
-                    <path d="M15 40 L24 21 L31 33 L38 18 L49 40" stroke="url(#logoGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="49" cy="18" r="3.2" fill="#f59e0b"/>
-                </svg>
-            </div>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#080f1e]/85 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
+            <a href="#top" class="leading-tight shrink-0">
+                <span class="block text-base sm:text-xl font-black text-white">أحمد ياسر</span>
+                <span class="block text-[10px] sm:text-xs text-slate-400 font-medium">شريكك في التسويق الطبي</span>
+            </a>
 
             <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
-                <a href="#vsl" class="hover:text-teal-400 transition-colors">الفيديو التعريفي</a>
                 <a href="#portfolio" class="hover:text-teal-400 transition-colors">نماذج أعمالنا</a>
                 <a href="#why-us" class="hover:text-teal-400 transition-colors">ليه إحنا؟</a>
-                <a href="#services" class="hover:text-teal-400 transition-colors">الخدمات الشاملة</a>
+                <a href="#services" class="hover:text-teal-400 transition-colors">الخدمات</a>
             </div>
 
-            <a href="https://wa.me/201022492682?text=مرحباً،%20أنا%20دكتور%20وعاوز%20أستفسر%20عن%20خدمات%20التسويق%20الطبي%20لعيادتي" target="_blank" class="inline-flex items-center gap-2 btn-grad text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-md">
+            <a href="https://wa.me/201022492682?text=مرحباً،%20أنا%20دكتور%20وعاوز%20أستفسر%20عن%20خدمات%20التسويق%20الطبي%20لعيادتي" target="_blank" class="inline-flex items-center gap-2 btn-grad text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-full shrink-0">
                 <i class="fa-brands fa-whatsapp"></i>
                 <span class="hidden sm:inline">احجز استشارة واتساب</span>
                 <span class="sm:hidden">واتساب</span>
@@ -133,56 +128,47 @@
     </header>
 
     <!-- Hero Section & VSL -->
-    <section id="vsl" class="pt-32 pb-20 relative overflow-hidden">
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/3 right-10 w-[300px] h-[300px] bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-teal-500/30 text-teal-300 text-xs sm:text-sm font-bold mb-6">
-                <span class="flex h-2 w-2 rounded-full bg-teal-400 animate-ping"></span>
+    <section id="vsl" class="pt-24 sm:pt-32 pb-14 sm:pb-20 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/25 bg-teal-500/5 text-teal-300 text-[11px] sm:text-sm font-bold mb-7">
+                <span class="h-1.5 w-1.5 rounded-full bg-teal-400"></span>
                 <span>متخصصين في التسويق الطبي وبناء براند الدكاترة في مصر</span>
             </div>
 
-            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
-                بلاش تضيع ميزانيتك مع شركات تسويق عامة.. <br class="hidden sm:block"/>
-                <span class="text-gradient inline-block pb-2 leading-normal">ابني حضور طبي يثق فيه المرضى</span> وزود جدول الحجوزات والعمليات
+            <h1 class="mb-6 text-balance">
+                <span class="block text-lg sm:text-2xl font-bold text-slate-300 mb-3">بلاش تضيع ميزانيتك مع شركات تسويق عامة..</span>
+                <span class="block text-gradient text-[2rem] leading-[1.35] sm:text-6xl sm:leading-[1.3] font-black pb-1">ابني حضور طبي يثق فيه المرضى</span>
+                <span class="block text-2xl sm:text-4xl font-black text-white mt-1">وزود جدول الحجوزات والعمليات</span>
             </h1>
 
-            <p class="text-slate-300 text-base sm:text-xl max-w-3xl mx-auto font-normal leading-relaxed mb-10">
-                ساعدنا أكتر من <strong class="text-white underline decoration-teal-400 decoration-2 underline-offset-2">10 دكاترة ومراكز طبية في مصر</strong> يبدأوا من الصفر ويحققوا نتائج حقيقية ومستدامة في الحجوزات والعمليات.. بفضل فريق متكامل بيتولى كل حاجة: الإدارة، المحتوى، التصوير، المونتاج، الإعلانات والموقع الإلكتروني.
+            <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-loose mb-9">
+                ساعدنا أكتر من <strong class="text-teal-300 font-bold">10 دكاترة ومراكز طبية في مصر</strong> يبدأوا من الصفر ويحققوا نتائج حقيقية ومستدامة في الحجوزات والعمليات.. بفضل فريق متكامل بيتولى كل حاجة: الإدارة، المحتوى، التصوير، المونتاج، الإعلانات والموقع الإلكتروني.
             </p>
 
-            <div class="relative max-w-lg mx-auto rounded-3xl overflow-hidden glass-card border border-emerald-500/30 p-2 sm:p-3 vsl-glow mb-10 transform hover:-translate-y-1 transition-all duration-300">
-                <div class="absolute top-5 right-5 z-20 bg-slate-900/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-2 shadow-lg">
-                    <i class="fa-solid fa-user-tie text-emerald-400"></i>
-                    <span>أحمد ياسر</span>
-                </div>
-                <div class="rounded-2xl overflow-hidden relative bg-slate-800" style="aspect-ratio: 1/1;">
-                    <img src="profile.jpg" alt="أحمد ياسر" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none"></div>
-                </div>
+            <div class="max-w-sm sm:max-w-md mx-auto rounded-3xl overflow-hidden border border-white/10 bg-slate-900">
+                <img src="profile.jpg" alt="أحمد ياسر" class="w-full h-full object-cover" style="aspect-ratio: 1/1;">
             </div>
         </div>
     </section>
 
     <!-- Stats Counter Bar -->
-    <section class="py-12 bg-slate-900/60 border-y border-slate-800">
+    <section class="py-10 sm:py-14 bg-slate-900/60 border-y border-slate-800">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-3xl sm:text-4xl font-black font-mono-num text-teal-400 mb-1">+10</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
+                <div class="p-2 sm:p-4">
+                    <div class="text-2xl sm:text-4xl font-black font-mono-num text-teal-400 mb-1">+10</div>
                     <div class="text-xs sm:text-sm text-slate-400 font-medium">دكاترة ومراكز بدأوا معانا من الصفر</div>
                 </div>
-                <div class="p-4">
-                    <div class="text-3xl sm:text-4xl font-black font-mono-num text-emerald-400 mb-1">100%</div>
+                <div class="p-2 sm:p-4">
+                    <div class="text-2xl sm:text-4xl font-black font-mono-num text-emerald-400 mb-1">100%</div>
                     <div class="text-xs sm:text-sm text-slate-400 font-medium">تخصص حصري في التسويق الطبي</div>
                 </div>
-                <div class="p-4">
-                    <div class="text-3xl sm:text-4xl font-black font-mono-num text-sky-400 mb-1">360°</div>
+                <div class="p-2 sm:p-4">
+                    <div class="text-2xl sm:text-4xl font-black font-mono-num text-teal-400 mb-1">360°</div>
                     <div class="text-xs sm:text-sm text-slate-400 font-medium">فريق كامل (محتوى، تصوير، إعلانات، موقع)</div>
                 </div>
-                <div class="p-4">
-                    <div class="text-3xl sm:text-4xl font-black text-amber-400 mb-1">×2</div>
+                <div class="p-2 sm:p-4">
+                    <div class="text-2xl sm:text-4xl font-black text-emerald-400 mb-1">×2</div>
                     <div class="text-xs sm:text-sm text-slate-400 font-medium">متوسط زيادة الحجوزات والعمليات</div>
                 </div>
             </div>
@@ -190,11 +176,11 @@
     </section>
 
     <!-- Video Portfolio Section -->
-    <section id="portfolio" class="py-24 relative">
+    <section id="portfolio" class="py-16 sm:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal">
                 <span class="text-teal-400 font-bold text-sm tracking-widest uppercase">قصص نجاح من أرض الواقع</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">نماذج حقيقية من شغلنا مع الدكاترة</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 mb-4">نماذج حقيقية من شغلنا مع الدكاترة</h2>
                 <p class="text-slate-400 text-base">شوف بنفسك جودة التصوير والمونتاج والمحتوى اللي بنقدمه، وإزاي بنحول تواجد الدكتور الرقمي لمرجع موثوق وسورس حقيقي للعمليات والحجوزات.</p>
             </div>
 
@@ -204,7 +190,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1eSdBHXiiw68QkHaWHj4vFYphiUZKuw3n/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. محمود عيد – أخصائي أطفال وحديثي الولادة، جامعة القاهرة"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. محمود عيد – أخصائي أطفال وحديثي الولادة، جامعة القاهرة</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">+50 مليون مشاهدة و+250 ألف متابع أورجانيك بدون إعلانات ممولة</p>
                         <a href="https://drive.google.com/file/d/1eSdBHXiiw68QkHaWHj4vFYphiUZKuw3n/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -215,7 +201,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1b4F08xvZtqMqwX1EG1qKNVKnbX3poYa6/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. بلال العزبي – مدرس جراحة الأطفال بجامعة القاهرة"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. بلال العزبي – مدرس جراحة الأطفال بجامعة القاهرة</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">بدأ صفحات السوشيال ميديا معانا من الصفر، واستمر التعاون لأكتر من سنتين، وحققنا خلالها انتشار ونجاح قوي.</p>
                         <a href="https://drive.google.com/file/d/1b4F08xvZtqMqwX1EG1qKNVKnbX3poYa6/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -226,7 +212,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1oC9pZW4G8EcP0ONmUXp8cHuA9N7Povup/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. عبدالرحمن السبع – رئيس قسم جراحة الأطفال بمستشفى المنيرة"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. عبدالرحمن السبع – رئيس قسم جراحة الأطفال بمستشفى المنيرة</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">بعد تجارب متعددة مع شركات ميديا، بدأنا التعاون من أجل بناء حضور رقمي أكثر تأثيرًا، وحققنا نتائج ملموسة في زيادة حجوزات الكشوفات والعمليات.</p>
                         <a href="https://drive.google.com/file/d/1oC9pZW4G8EcP0ONmUXp8cHuA9N7Povup/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -237,7 +223,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1fKbJ--glw4hXYIB3OkAA7q-Ot0cI6XJN/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. محمد رجب – مدرس أمراض الذكورة بجامعة القاهرة"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. محمد رجب – مدرس أمراض الذكورة بجامعة القاهرة</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">بدأ معانا من سنة، وبنينا السوشيال ميديا والموقع الإلكتروني من الصفر، وحققنا ظهورًا متقدمًا للموقع في نتائج بحث جوجل.</p>
                         <a href="https://drive.google.com/file/d/1fKbJ--glw4hXYIB3OkAA7q-Ot0cI6XJN/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -248,7 +234,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1mj3wr4MSMGt3hXtYL6b8auML_FfHJxba/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. أحمد عيد – مدير مركز Kids Care الطبي"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. أحمد عيد – مدير مركز Kids Care الطبي</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">مركز طبي متكامل يضم وحدة عناية مركزة وحضانات، ومستمرين في التعاون من أكتر من سنة، قدرنا خلالها نحقق نتائج قوية وملموسة في الحضور والانتشار على السوشيال ميديا.</p>
                         <a href="https://drive.google.com/file/d/1mj3wr4MSMGt3hXtYL6b8auML_FfHJxba/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -259,7 +245,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1pYnUm71xgqryScqz8yDjYwhTc96XLTW2/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. محمد خضر – استشاري أول جراحة الأنف والأذن والحنجرة"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. محمد خضر – استشاري أول جراحة الأنف والأذن والحنجرة</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">حققنا معاه نتائج قوية على جوجل والسوشيال ميديا، وانعكس ده بشكل واضح على حجوزات العيادة والعمليات.</p>
                         <a href="https://drive.google.com/file/d/1pYnUm71xgqryScqz8yDjYwhTc96XLTW2/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -270,7 +256,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1c7MtzpuF6U10v7dS0G8t9GbsNxKBVTib/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="المؤسسة المصرية لأطباء الأطفال في مصر"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">المؤسسة المصرية لأطباء الأطفال في مصر</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">حققنا ملايين المشاهدات وآلاف المتابعين بشكل أورجانيك، بدون الاعتماد على إعلانات ممولة على السوشيال ميديا.</p>
                         <a href="https://drive.google.com/file/d/1c7MtzpuF6U10v7dS0G8t9GbsNxKBVTib/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -281,7 +267,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1DZb2PccanbRBm2ak1PHr74590J48a42T/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. محمد هلال – أستاذ النساء والتوليد بجامعة الأزهر"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. محمد هلال – أستاذ النساء والتوليد بجامعة الأزهر</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">مستمرين في التعاون معاه من أكتر من سنة، وحققنا انتشارًا قويًا على السوشيال ميديا انعكس بشكل واضح على حجوزات العيادة والعمليات.</p>
                         <a href="https://drive.google.com/file/d/1DZb2PccanbRBm2ak1PHr74590J48a42T/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -292,7 +278,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1HEP1arJ9tNVtsEzsyze8ZpS8GWfT40hc/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="د. علاء سليمان – أخصائي جراحة العيون"></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">د. علاء سليمان – أخصائي جراحة العيون</h3>
                         <p class="text-sm text-teal-300 leading-relaxed mb-3">مستمرين في التعاون معاه من أكتر من 3 سنين، وحققنا خلالها انتشارًا قويًا وحضورًا احترافيًا على السوشيال ميديا.</p>
                         <a href="https://drive.google.com/file/d/1HEP1arJ9tNVtsEzsyze8ZpS8GWfT40hc/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
@@ -303,7 +289,7 @@
                     <div class="video-frame">
                         <iframe src="https://drive.google.com/file/d/1VRi8TUIRKywnPkYaIXWsvb4noOmj2Mt_/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="تعاون مع منصة خليجية لتقديم محتوى تعليمي متخصص للجمهور في الخليج."></iframe>
                     </div>
-                    <div class="p-5">
+                    <div class="p-4 sm:p-5">
                         <h3 class="text-base font-bold text-white mb-2">تعاون مع منصة خليجية لتقديم محتوى تعليمي متخصص للجمهور في الخليج.</h3>
                         <a href="https://drive.google.com/file/d/1VRi8TUIRKywnPkYaIXWsvb4noOmj2Mt_/view" target="_blank" class="text-xs text-slate-400 hover:text-teal-400 transition-colors"><i class="fa-solid fa-play ml-1"></i>شاهد الفيديو</a>
                     </div>
@@ -313,17 +299,17 @@
     </section>
 
     <!-- Differentiation Section: Us vs Traditional Agencies -->
-    <section id="why-us" class="py-24 bg-slate-900/50 relative">
+    <section id="why-us" class="py-16 sm:py-24 bg-slate-900/50 relative">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal">
                 <span class="text-emerald-400 font-bold text-sm tracking-widest uppercase">الفرق الحقيقي</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">ليه شركات التسويق العادية بتفشل مع الدكاترة؟</h2>
+                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 mb-4">ليه شركات التسويق العادية بتفشل مع الدكاترة؟</h2>
                 <p class="text-slate-400 text-base">التسويق الطبي محتاج فهم عميق لدماغ المريض المصري وأخلاقيات المهنة، ومش مجرد تصميم بكتيب ألوان وجرافيك حلو وخلاص!</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch reveal">
                 <!-- Traditional General Agency -->
-                <div class="glass-card rounded-2xl p-8 border border-red-500/20 bg-red-950/10">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 border border-red-500/20 bg-red-950/10">
                     <div class="flex items-center gap-3 mb-6 pb-4 border-b border-red-500/20">
                         <div class="w-10 h-10 rounded-full bg-red-500/20 text-red-400 flex items-center justify-center text-xl">
                             <i class="fa-solid fa-xmark"></i>
@@ -340,7 +326,7 @@
                 </div>
 
                 <!-- Our Specialized Medical Agency -->
-                <div class="glass-card rounded-2xl p-8 border border-emerald-500/40 bg-emerald-950/20 relative glow-effect">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 border border-emerald-500/40 bg-emerald-950/20 relative glow-effect">
                     <div class="absolute -top-3 left-6 btn-grad text-slate-950 text-xs font-black px-4 py-1 rounded-full">
                         فريقنا المتخصص 100% في الطب
                     </div>
@@ -363,55 +349,55 @@
     </section>
 
     <!-- 360 Ecosystem Services Section -->
-    <section id="services" class="py-24 relative">
+    <section id="services" class="py-16 sm:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <span class="text-sky-400 font-bold text-sm tracking-widest uppercase">حل متكامل في مكان واحد</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">كل اللي تحتاجه عشان تكبر عيادتك</h2>
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-16 reveal">
+                <span class="text-teal-400 font-bold text-sm tracking-widest uppercase">حل متكامل في مكان واحد</span>
+                <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 mb-4">كل اللي تحتاجه عشان تكبر عيادتك</h2>
                 <p class="text-slate-400 text-base">بدل ما تتشتت بين مصور، ومصمم، وبتاع إعلانات، ومطور مواقع.. فريقنا بيمسك الموضوع من الألف للياء.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-bullseye"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">1. استراتيجية التموضع الطبي</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">1. استراتيجية التموضع الطبي</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">بنحدد جمهورك المستهدف بدقة، ونفهم مشاكله، وبنحط خطة محتوى تظهرك كخبير ورائد في تخصصك.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-video"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">2. صناعة وتصوير Reels & Shorts</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">2. صناعة وتصوير Reels & Shorts</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">كتابة سكريبت وHooks خاطفة، وبنيجي نصور عندك في العيادة بمعدات إضاءة وصوت احترافية.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-500/10 text-sky-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-wand-magic-sparkles"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">3. المونتاج والهوية البصرية</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">3. المونتاج والهوية البصرية</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">مونتاج إبداعي وسريع، مع كتابة النصوص على الفيديو وتصميم الهوية اللي تليق بمكانتك كدكتور.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-rectangle-ad"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">4. إدارة الحملات الإعلانية</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">4. إدارة الحملات الإعلانية</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">إعلانات مُموّلة موجهة بدقة على فيسبوك، انستجرام، وتيك توك تستهدف المرضى المحتاجين للكشف والعمليات.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-globe"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">5. المواقع الإلكترونية وGoogle SEO</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">5. المواقع الإلكترونية وGoogle SEO</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">موقع طبي سريع يسهل حجز الكشف أونلاين، مع تهيئة محركات البحث عشان تبان في أول نتائج جوجل.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
-                    <div class="w-14 h-14 rounded-2xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-800 hover:border-teal-500/50 transition-all group">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-chart-line"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">6. متابعة الأداء وتطوير النتائج</h3>
+                    <h3 class="text-lg sm:text-xl font-bold text-white mb-3">6. متابعة الأداء وتطوير النتائج</h3>
                     <p class="text-sm text-slate-400 leading-relaxed">تقارير دورية عشان نتابع عدد الحجوزات، وبنطور الحملات باستمرار لضمان أقصى استفادة لميزانيتك.</p>
                 </div>
             </div>
@@ -419,7 +405,7 @@
     </section>
 
     <!-- Medical Specialties We Work With -->
-    <section class="py-16 bg-slate-900/40 border-y border-slate-800">
+    <section class="py-12 sm:py-16 bg-slate-900/40 border-y border-slate-800">
         <div class="max-w-6xl mx-auto px-4 text-center reveal">
             <span class="text-teal-400 font-bold text-xs tracking-widest uppercase">تخصصات لها شغل سابق حقيقي</span>
             <div class="flex flex-wrap justify-center gap-3 mt-6">
@@ -436,18 +422,17 @@
     </section>
 
     <!-- Booking Consultation Form Section -->
-    <section id="booking-form" class="py-24 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-teal-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="booking-form" class="py-16 sm:py-24 relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="glass-card rounded-3xl p-8 sm:p-12 border border-teal-500/30 glow-effect bg-slate-900/90 reveal">
+            <div class="glass-card rounded-3xl p-6 sm:p-12 border border-teal-500/30 glow-effect bg-slate-900/90 reveal">
                 <div class="text-center mb-10">
                     <span class="text-emerald-400 font-bold text-sm tracking-widest uppercase">ابدأ رحلة كبر عيادتك النهاردة</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-white mt-2 mb-4">احجز جلسة استشارية لعيادتك</h2>
+                    <h2 class="text-2xl sm:text-4xl font-black text-white mt-2 mb-4">احجز جلسة استشارية لعيادتك</h2>
                     <p class="text-slate-300 text-sm sm:text-base">سجل البيانات الجاية وخبير التسويق الطبي هيتواصل معاك على الواتساب عشان نراجع تواجدك الحالي ونحط خطة الشغل المناسبة.</p>
                 </div>
 
                 <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-300 mb-2">اسم الدكتور / المركز الطبي *</label>
                             <input type="text" id="doc-name" required placeholder="د. أحمد علي" class="field">
@@ -458,7 +443,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-300 mb-2">رقم الموبايل / الواتساب *</label>
                             <input type="tel" id="doc-phone" required placeholder="01012345678" pattern="^01[0125][0-9]{8}$" title="اكتب رقم موبايل مصري صحيح مكوّن من 11 رقم، يبدأ بـ 010 أو 011 أو 012 أو 015" class="field">
@@ -508,8 +493,8 @@
                 <span class="text-white font-bold">أحمد ياسر</span>
                 <span>© 2026 جميع الحقوق محفوظة</span>
             </div>
-            <div class="flex items-center gap-4 text-slate-400">
-                <span>متخصصين في نمو العيادات والمراكز الطبية في مصر</span>
+            <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-slate-400 text-center">
+                <span>شريكك في التسويق الطبي لنمو العيادات والمراكز الطبية في مصر</span>
                 <a href="tel:+201022492682" class="font-mono-num flex items-center gap-1.5 hover:text-teal-400 transition-colors">
                     <i class="fa-solid fa-phone"></i>
                     <span>+20 102 249 2682</span>
@@ -519,7 +504,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a id="fab-whatsapp" href="https://wa.me/201022492682?text=مرحباً،%20أنا%20دكتور%20وعاوز%20أستفسر%20عن%20خدمات%20التسويق%20الطبي%20لعيادتي" target="_blank" class="float-anim fixed bottom-6 right-6 z-50 btn-grad text-white flex items-center gap-2 px-5 py-3.5 rounded-full shadow-2xl opacity-0 pointer-events-none translate-y-3 transition-all duration-300" aria-label="تواصل معنا على الواتساب">
+    <a id="fab-whatsapp" href="https://wa.me/201022492682?text=مرحباً،%20أنا%20دكتور%20وعاوز%20أستفسر%20عن%20خدمات%20التسويق%20الطبي%20لعيادتي" target="_blank" class="fixed right-5 z-50 btn-grad text-white flex items-center justify-center gap-2 w-14 h-14 sm:w-auto sm:h-auto sm:px-5 sm:py-3.5 rounded-full shadow-2xl bottom-[max(1.25rem,env(safe-area-inset-bottom))] opacity-0 pointer-events-none translate-y-3 transition-all duration-300" aria-label="تواصل معنا على الواتساب">
         <i class="fa-brands fa-whatsapp text-xl"></i>
         <span class="text-sm font-semibold hidden sm:inline">واتساب</span>
     </a>
@@ -566,7 +551,7 @@
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
         revealEls.forEach(el => io.observe(el));
     </script>
 </body>
