@@ -94,8 +94,35 @@
         .float-anim { animation: floatUp 3s ease-in-out infinite; }
         .reveal{ opacity:0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
         .reveal.in{ opacity:1; transform: translateY(0); }
-        .video-frame{ aspect-ratio: 16/9; background:#000; }
-        .video-frame iframe{ width:100%; height:100%; border:0; }
+        @keyframes skeleton-pulse {
+            0%, 100% { background-color: #0f172a; }
+            50% { background-color: #1e293b; }
+        }
+        .video-frame { 
+            position: relative;
+            aspect-ratio: 16/9; 
+            background-color: #0f172a; 
+            animation: skeleton-pulse 1.5s infinite;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-frame::after {
+            content: "جاري تحميل الفيديو...";
+            position: absolute;
+            color: #475569;
+            font-size: 0.875rem;
+            font-weight: 600;
+            z-index: 0;
+        }
+        .video-frame iframe { 
+            position: relative;
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+            z-index: 1;
+        }
         .pill {
             transition: all .2s ease;
         }
@@ -144,8 +171,10 @@
                 ساعدنا كتير من الدكاترة والمراكز الطبية والمستشفيات يبدأوا من الصفر ويحققوا نتائج حقيقية ومستدامة في الحجوزات والعمليات.. بفضل فريق متكامل بيتولى كل حاجة: الإدارة، المحتوى، التصوير، المونتاج، الإعلانات والموقع الإلكتروني.
             </p>
 
-            <div class="max-w-sm sm:max-w-md mx-auto rounded-3xl overflow-hidden border border-white/10 bg-slate-900">
-                <img src="profile.jpg" alt="أحمد ياسر" class="w-full h-full object-cover" style="aspect-ratio: 1/1;">
+            <div class="max-w-lg sm:max-w-3xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-slate-900 shadow-2xl shadow-teal-500/20">
+                <div class="video-frame">
+                    <iframe src="https://drive.google.com/file/d/1eSdBHXiiw68QkHaWHj4vFYphiUZKuw3n/preview" allow="autoplay; encrypted-media" allowfullscreen loading="lazy" title="فيديو تعريفي عن خدماتنا"></iframe>
+                </div>
             </div>
         </div>
     </section>
